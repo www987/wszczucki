@@ -1,0 +1,124 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width" />
+    <title>Wojciech Szczucki</title>
+    <link rel="stylesheet" href="css/database.css">
+    <link rel="stylesheet" href="fontello/css/szczucki-font.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,900&display=swap" rel="stylesheet">
+    <script src="js/database.js" defer></script>
+    <script src="js/data.js" defer></script>
+</head>
+    <script>
+        function naSzybko(){
+       setInterval(function(){
+        console.log(document.querySelector("#fileSize").files);
+           var ii = document.querySelector("#fileSize").files;
+        for(let j of ii)
+            console.log(j.name);
+    }, 3000)
+        }
+    </script>
+<body onresize="resizeCSScheck()" onload="naSzybko()">
+    <nav>
+        <div id="navbar">
+            <div class="titleNav">
+                <a href="database.php">Szczucki database </a>
+                <a href="dane.php"><div id = "navIcon"></div></a>
+            </div>
+            <div id="menuNav">
+                <ul>
+                    <a href="index.php" title="Strona główna"><li><i class="icon-home"></i><span>Strona główna</span></li></a>
+                    <a href="projekty.php" title="Moje projekty"><li><i class="icon-file-code"></i><span>Moje projekty</span></li></a>
+                    <a href="omnie.php" title="O mnie"><li><i class="icon-newspaper"></i><span>O mnie</span></li></a>
+                    <a href="kontakt.php" title="Kontakt"><li><i class="icon-mail-alt"></i><span>Kontakt</span></li></a>
+                </ul>
+                <p><a href="logout.php">Wyloguj: </a><span style="font-weight: 900;" class="username"><?php echo $_SESSION['login']; ?></span></p>
+            </div>
+            <div id="buttonMenu" ><i class="icon-menu" onclick="menuOnOff()"></i></div>
+        </div>
+    </nav>
+    <main>
+        <div id="mainMenu">
+            <ul>
+                <li onclick="screw(); resizeMainMenu();"><i class="icon-left"></i><span>Zwiń</span></li>
+                <li><a href="database.php"><i class="icon-info-circled"></i><span>Informacje</span></a></li>
+                <li><a href="dane.php"><i class="icon-database"></i><span>Twoje dane</span></a></li>
+                <li><a href="sugestie.php"><i class="icon-mail-alt"></i><span>Sugestie</span></a></li>
+                <li><a href="ustawienia.php"><i class="icon-palette"></i><span>ustawienia</span></a></li>
+            </ul>
+        </div>
+        <div id="contentBox" class="startTop settingsL">
+            <div id="dataContainer" class="settingsChange">
+                <navbar>
+                <div class="topNavbar">
+                    <div class="anotherSetting">
+                        Tapeta
+                    </div>
+                    <div class="anotherSetting">
+                        Wkrótce
+                    </div>
+                    <div class="anotherSetting">
+                        Wkrótce
+                    </div>
+                    <div class="anotherSetting">
+                        Wkrótce
+                    </div>
+                    <div class="anotherSetting">
+                        Wkrótce
+                    </div>
+                </div>
+                </navbar>
+                <div id="settingsContainer">
+                    <div id="settingsInfo">
+                        <header>
+                            <div class="contentIcon">
+                                <i class="icon-palette"></i>
+                            </div>
+                            <p>Ustaw swoją tapetę</p>
+                        </header>
+                        <div class="blockData">
+                            <div class="blockDataP"><p><span class="greenBig">A.</span>Wybierz z komputera</p></div>
+                            <form>
+                                <input type="file" id="fileSize" name="file[]" multiple>
+                                <label for="fileSize"><i class="icon-upload-cloud"></i>Wybierz plik</label>
+                                <input type="submit" value="Wyślij">
+                            </form>
+                        </div>
+                        <div class="blockData">
+                            <div class="blockDataP"><p><span class="greenBig">B.</span>Lub kliknij poniżej i </p></div>
+                            <div id="flexStartBlockData"><input type="button" value="Potwierdź"></div>
+                        </div>
+                    </div>
+                    <div id="exampleWallapers">
+                        <div class="imageInfo">Przykładowe zdjęcia</div>
+                        <div class="chooseImage">
+                            <img src="img/wallaper.jpg" class="image">
+                            <img src="img/1.jpg" class="image">
+                            <img src="img/wallaper.jpg" class="image">
+                            <img src="img/1.jpg" class="image">
+                            <img src="img/wallaper.jpg" class="image">
+                            <img src="img/1.jpg" class="image">
+                            <img src="img/wallaper.jpg" class="image">
+                            <img src="img/1.jpg" class="image">
+                        </div>
+                    </div>
+                    <div id="yourWallapers">
+                        <div class="imageInfo">Zdjęcia z Twojego dysku</div>
+                        <div class="chooseImage">
+                            <img src="img/wallaper.jpg" class="image">
+                            <img src="img/2.jpg" class="image">
+                            <img src="img/wallaper.jpg" class="image">
+                            <img src="img/2.jpg" class="image">
+                            <img src="img/wallaper.jpg" class="image">
+                            <img src="img/2.jpg" class="image">
+                            <img src="img/wallaper.jpg" class="image">
+                            <img src="img/2.jpg" class="image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!--method="post" action="upload.php" enctype="multipart/form-data"-->
+</body>
